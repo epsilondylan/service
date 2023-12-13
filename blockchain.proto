@@ -1,0 +1,38 @@
+syntax = "proto3";
+option go_package = "../service";
+
+message CRequest {
+  string name = 1;
+  string data = 2;
+}
+
+message CResponse {
+  int32 errno = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message JoinRequest {
+  string peer_addr = 1;
+}
+
+message JResponse {
+    int32 errno = 1;
+    string msg = 2;
+}
+
+message SRequest {
+  bool chain = 1;
+  bool peer = 2;
+}
+
+message SResponse {
+  bytes chain = 1;
+  bytes peer = 2;
+}
+
+service BlockchainService {
+  rpc CreateBlock(CRequest) returns (CResponse);
+  rpc JoinNode(JoinRequest) returns (JResponse);
+  rpc ShowBlockchain(SRequest) returns (SResponse);
+}
