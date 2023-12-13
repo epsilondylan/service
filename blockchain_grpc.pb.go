@@ -175,4 +175,3 @@ var BlockchainService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "blockchain.proto",
 }
-
